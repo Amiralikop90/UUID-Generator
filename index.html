@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- ===== Google Search Console Verification ===== -->
+  <meta name="google-site-verification" content="mLworcsiofOhMsDaAZ9Vzi7Swi1QErd75vJHjTm8bxw" />
+
   <title>مولد UUID آنلاین | UUID v1, v3, v4, v5, v7 | UUID Generator</title>
 
   <meta name="description" content="مولد آنلاین و رایگان UUID — تولید UUID نسخه ۱، ۳، ۴، ۵ و ۷ با قابلیت دانلود به صورت uuid.txt. پشتیبانی از ۳ زبان و دو تم.">
@@ -409,8 +412,6 @@
   </main>
 
   <script>
-    // ===== UUID Implementations =====
-
     function uuidV4() {
       if (crypto.randomUUID) return crypto.randomUUID();
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
@@ -506,7 +507,6 @@
       }
     }
 
-    // ===== State =====
     let currentVersion = 'v4';
     let currentUuid = '';
 
@@ -521,7 +521,6 @@
     const versionBtns = document.querySelectorAll('.version-btn');
     const langBtns = document.querySelectorAll('.lang-btn');
 
-    // ===== Translations =====
     const translations = {
       fa: {
         title: '🎯 مولد UUID آنلاین',
@@ -666,7 +665,6 @@
       btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
     });
 
-    // Version buttons — change UUID on click
     versionBtns.forEach(btn => {
       btn.addEventListener('click', async () => {
         document.querySelector('.version-btn.active').classList.remove('active');
@@ -677,7 +675,6 @@
       });
     });
 
-    // Refresh UUID (new one)
     async function refreshUuid() {
       currentUuid = await generateOne(currentVersion);
       uuidDisplay.textContent = currentUuid;
@@ -686,7 +683,6 @@
       uuidDisplay.classList.add('flash');
     }
 
-    // Copy button
     copyBtn.addEventListener('click', () => {
       if (!currentUuid) return;
       navigator.clipboard.writeText(currentUuid).then(() => {
@@ -696,7 +692,6 @@
       });
     });
 
-    // Download button — saves as uuid.txt
     downloadBtn.addEventListener('click', () => {
       if (!currentUuid) return;
       const content = `${currentUuid}\n`;
@@ -711,18 +706,14 @@
       URL.revokeObjectURL(url);
     });
 
-    // Init
     applyTheme(currentTheme);
     applyLanguage(currentLang);
 
-    // Generate first UUID on page load
     (async () => {
       currentUuid = await generateOne(currentVersion);
       uuidDisplay.textContent = currentUuid;
       versionBadge.textContent = currentVersion.toUpperCase();
     })();
-
-    // Keyboard shortcut: Ctrl+R handled by browser (refresh gives new UUID)
   </script>
 </body>
 </html>
