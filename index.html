@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>مولد UUID آنلاین | UUID v1, v3, v4, v5, v7 | UUID Generator</title>
+
+  <meta name="description" content="مولد آنلاین و رایگان UUID — تولید UUID نسخه ۱، ۳، ۴، ۵ و ۷ با قابلیت دانلود به صورت uuid.txt. پشتیبانی از ۳ زبان و دو تم.">
+  <meta name="keywords" content="UUID Generator, UUID v4, UUID v1, UUID v7, تولید UUID, مولد UUID, GUID, Unique ID, دانلود UUID">
+  <meta name="author" content="Amirali Kamani">
+  <meta name="publisher" content="psoa.ir">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://amiralikop90.github.io/UUID-Generator/">
+  <link rel="alternate" hreflang="fa" href="https://amiralikop90.github.io/UUID-Generator/">
+  <link rel="alternate" hreflang="en" href="https://amiralikop90.github.io/UUID-Generator/?lang=en">
+  <link rel="alternate" hreflang="zh" href="https://amiralikop90.github.io/UUID-Generator/?lang=zh">
+  <link rel="alternate" hreflang="x-default" href="https://amiralikop90.github.io/UUID-Generator/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amiralikop90.github.io/UUID-Generator/">
+  <meta property="og:title" content="مولد UUID آنلاین — نسخه‌های v1, v3, v4, v5, v7">
+  <meta property="og:description" content="مولد رایگان UUID با قابلیت دانلود به صورت uuid.txt. ۳ زبان، دو تم.">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:site_name" content="UUID Generator">
+  <meta property="og:image" content="https://psoa.ir/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مولد UUID آنلاین">
+  <meta name="twitter:description" content="تولید UUID v1, v3, v4, v5, v7 و دانلود به صورت uuid.txt.">
+  <meta name="twitter:image" content="https://psoa.ir/og-image.png">
+
+  <link rel="icon" type="image/x-icon" href="https://psoa.ir/favicon.ico">
+  <link rel="apple-touch-icon" href="https://psoa.ir/favicon.ico">
+  <meta name="theme-color" content="#6366f1">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UUID Generator",
+    "url": "https://amiralikop90.github.io/UUID-Generator/",
+    "description": "مولد آنلاین رایگان UUID — نسخه‌های ۱، ۳، ۴، ۵ و ۷ با قابلیت دانلود.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Amirali Kamani", "url": "https://psoa.ir" },
+    "inLanguage": ["fa", "en", "zh"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f5f7fa; --surface: #ffffff; --surface-2: #f8fafc;
+      --text: #1a202c; --text-muted: #718096; --border: #e2e8f0;
+      --accent-1: #6366f1; --accent-2: #8b5cf6;
+      --accent-glow: rgba(99, 102, 241, 0.25);
+      --code-bg: #1a1d23; --code-text: #7dd3a0; --code-comment: #6b7280;
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    [data-theme="dark"] {
+      --bg: #0a0a0a; --surface: #141414; --surface-2: #1c1c1c;
+      --text: #f0f0f0; --text-muted: #8a8a8a; --border: #262626;
+      --accent-1: #818cf8; --accent-2: #a78bfa;
+      --accent-glow: rgba(129, 140, 248, 0.3);
+      --code-bg: #0d0d0d; --code-text: #86efac; --code-comment: #4a4a4a;
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.6);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.8);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter','Segoe UI','PingFang SC','Microsoft YaHei',Tahoma,sans-serif;
+      border-radius: 0 !important;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 10%, var(--accent-glow), transparent 40%),
+        radial-gradient(circle at 80% 90%, var(--accent-glow), transparent 40%);
+      min-height: 100vh; padding: 24px;
+      display: flex; justify-content: center; align-items: center;
+      color: var(--text); overflow-x: hidden;
+    }
+    .top-bar { position: fixed; top: 20px; left: 20px; right: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; z-index: 100; pointer-events: none;
+    }
+    .top-bar > * { pointer-events: auto; }
+    .theme-toggle { width: 48px; height: 48px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); cursor: pointer; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+    .lang-switcher { display: flex; border: 1px solid var(--border);
+      background: var(--surface); box-shadow: var(--shadow-md);
+    }
+    .lang-btn { padding: 12px 16px; border: none;
+      border-left: 1px solid var(--border); background: transparent;
+      color: var(--text-muted); cursor: pointer; font-size: 13px;
+      font-weight: 600; transition: all 0.2s; font-family: inherit;
+    }
+    .lang-btn:first-child { border-left: none; }
+    .lang-btn:hover { color: var(--text); background: var(--surface-2); }
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff;
+    }
+    .container { background: var(--surface); border: 1px solid var(--border);
+      padding: 40px; max-width: 820px; width: 100%;
+      box-shadow: var(--shadow-lg); position: relative;
+      animation: fadeIn 0.5s ease; margin-top: 40px;
+    }
+    .container::before, .container::after {
+      content: ''; position: absolute; width: 20px; height: 20px;
+      border: 2px solid var(--accent-1);
+    }
+    .container::before { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .container::after { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .promo-banner {
+      display: block; text-decoration: none; color: inherit;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      padding: 16px 20px; margin-bottom: 24px;
+      position: relative; overflow: hidden; cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .promo-banner::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer { 0% { left: -100%; } 100% { left: 100%; } }
+    .promo-banner:hover { transform: translateY(-2px); }
+    .promo-content { display: flex; align-items: center; gap: 14px; position: relative; z-index: 1; }
+    .promo-icon { font-size: 28px; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    .promo-text { flex: 1; color: #fff; }
+    .promo-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .promo-subtitle { font-size: 12px; opacity: 0.9; }
+    .promo-url { font-size: 12px; font-weight: 700; color: #fff;
+      background: rgba(255,255,255,0.2); padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.3); white-space: nowrap;
+    }
+    h1 { color: var(--text); margin-bottom: 10px; text-align: center;
+      font-size: 26px; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 30px; font-size: 14px; }
+
+    .options {
+      background: var(--surface-2); border: 1px solid var(--border);
+      padding: 20px; margin-bottom: 20px;
+    }
+    .option-label {
+      font-size: 12px; font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: block; margin-bottom: 10px;
+    }
+    .version-tabs {
+      display: flex; gap: 0; flex-wrap: wrap;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .version-btn {
+      flex: 1; min-width: fit-content;
+      padding: 12px 16px; border: none;
+      border-left: 1px solid var(--border);
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 13px; font-weight: 600;
+      font-family: inherit; transition: all 0.2s;
+    }
+    .version-btn:first-child { border-left: none; }
+    .version-btn:hover { color: var(--text); background: var(--surface-2); }
+    .version-btn.active {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff;
+    }
+
+    .uuid-display {
+      background: var(--code-bg); color: var(--code-text);
+      padding: 30px 24px;
+      font-family: 'JetBrains Mono','Fira Code','Consolas','Monaco',monospace;
+      font-size: 20px; font-weight: 600;
+      text-align: center;
+      border: 1px solid var(--border);
+      direction: ltr;
+      word-break: break-all;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      min-height: 90px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+      user-select: all;
+    }
+    .uuid-display.flash {
+      animation: flash 0.4s ease;
+    }
+    @keyframes flash {
+      0%, 100% { background: var(--code-bg); }
+      50% { background: rgba(99, 102, 241, 0.2); }
+    }
+
+    .uuid-meta {
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 12px;
+      margin-bottom: 20px; flex-wrap: wrap;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .uuid-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff; padding: 4px 12px;
+      font-weight: 700; font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .buttons {
+      display: flex; gap: 0; margin-bottom: 20px;
+      flex-wrap: wrap; border: 1px solid var(--border);
+    }
+    button.action {
+      padding: 14px 20px; border: none;
+      border-left: 1px solid var(--border);
+      cursor: pointer; font-size: 14px; font-weight: 500;
+      transition: all 0.25s;
+      background: var(--surface-2); color: var(--text);
+      display: inline-flex; align-items: center; gap: 6px;
+      justify-content: center; font-family: inherit;
+    }
+    button.action:first-child { border-left: none; }
+    button.action:hover { background: var(--surface); color: var(--accent-1); }
+    button.action:active { transform: scale(0.98); }
+    button.primary {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: #fff; border-left: none;
+      flex: 1; font-weight: 600;
+    }
+    button.primary:hover { filter: brightness(1.1); color: #fff; }
+
+    .seo-content { margin-top: 40px; padding-top: 30px;
+      border-top: 1px solid var(--border); color: var(--text);
+      font-size: 14px; line-height: 1.9;
+    }
+    .seo-content h2 { font-size: 18px; font-weight: 700; margin-bottom: 14px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .seo-content h3 { font-size: 15px; font-weight: 600; margin: 18px 0 8px; color: var(--text); }
+    .seo-content p { color: var(--text-muted); margin-bottom: 12px; }
+    .seo-content ul { list-style: none; padding-right: 0; margin-bottom: 14px; }
+    .seo-content li { padding: 6px 0; color: var(--text-muted);
+      position: relative; padding-right: 22px;
+    }
+    .seo-content li::before { content: '✓'; position: absolute; right: 0;
+      color: var(--accent-1); font-weight: 700;
+    }
+    .faq-item { border: 1px solid var(--border); padding: 14px 18px;
+      margin-bottom: 10px; background: var(--surface-2);
+    }
+    .faq-item summary { cursor: pointer; font-weight: 600;
+      color: var(--text); font-size: 14px; list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before { content: '▸ '; color: var(--accent-1);
+      transition: transform 0.2s; display: inline-block;
+    }
+    .faq-item[open] summary::before { transform: rotate(90deg); }
+    .faq-item p { margin-top: 10px; color: var(--text-muted);
+      font-size: 13px; line-height: 1.8;
+    }
+    .footer { text-align: center; margin-top: 28px; padding-top: 22px;
+      border-top: 1px solid var(--border); font-size: 13px;
+      color: var(--text-muted); line-height: 1.9;
+    }
+    .footer a { color: var(--accent-1); text-decoration: none; font-weight: 600; }
+    .footer a:hover { color: var(--accent-2); text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .container { padding: 24px; margin-top: 60px; }
+      h1 { font-size: 20px; }
+      .theme-toggle { width: 42px; height: 42px; font-size: 18px; }
+      .lang-btn { padding: 10px 12px; font-size: 12px; }
+      .buttons { flex-wrap: wrap; }
+      button.action { flex: 1 0 auto; }
+      .top-bar { top: 12px; left: 12px; right: 12px; }
+      .promo-content { flex-wrap: wrap; }
+      .promo-url { font-size: 11px; padding: 6px 10px; }
+      .promo-icon { font-size: 22px; }
+      .version-btn { font-size: 12px; padding: 10px 8px; }
+      .uuid-display { font-size: 14px; padding: 20px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">🌙</button>
+    <nav class="lang-switcher" aria-label="انتخاب زبان">
+      <button class="lang-btn active" data-lang="fa" aria-label="فارسی">🇮🇷 فارسی</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">🇬🇧 English</button>
+      <button class="lang-btn" data-lang="zh" aria-label="中文">🇨🇳 中文</button>
+    </nav>
+  </div>
+
+  <main class="container">
+
+    <a href="https://psoa.ir" target="_blank" rel="noopener" class="promo-banner" aria-label="سایت رسمی امیرعلی کمانی">
+      <div class="promo-content">
+        <span class="promo-icon" aria-hidden="true">🚀</span>
+        <div class="promo-text">
+          <div class="promo-title" data-i18n="promoTitle">سایت رسمی من — psoa.ir</div>
+          <div class="promo-subtitle" data-i18n="promoSubtitle">یه سر بزن، چیزهای جالبی داری!</div>
+        </div>
+        <span class="promo-url">psoa.ir ←</span>
+      </div>
+    </a>
+
+    <h1 id="title">🎯 مولد UUID آنلاین</h1>
+    <p class="subtitle" id="subtitle">UUID نسخه‌های ۱، ۳، ۴، ۵ و ۷ — با هر رفرش، یک UUID جدید</p>
+
+    <!-- Version tabs -->
+    <div class="options">
+      <span class="option-label" data-i18n="labelVersion">نسخه UUID</span>
+      <div class="version-tabs" role="tablist">
+        <button class="version-btn active" data-version="v4">v4</button>
+        <button class="version-btn" data-version="v1">v1</button>
+        <button class="version-btn" data-version="v7">v7</button>
+        <button class="version-btn" data-version="v3">v3</button>
+        <button class="version-btn" data-version="v5">v5</button>
+        <button class="version-btn" data-version="nil">NIL</button>
+      </div>
+    </div>
+
+    <!-- UUID display -->
+    <div class="uuid-display" id="uuidDisplay" dir="ltr">—</div>
+
+    <div class="uuid-meta">
+      <span class="uuid-badge" id="versionBadge">v4</span>
+      <span data-i18n="refreshHint">🔄 برای UUID جدید، صفحه را رفرش کنید</span>
+    </div>
+
+    <div class="buttons">
+      <button id="copyBtn" class="action" data-i18n="btnCopy">📋 کپی</button>
+      <button id="downloadBtn" class="action primary" data-i18n="btnDownload">💾 دانلود uuid.txt</button>
+    </div>
+
+    <section class="seo-content">
+      <h2 data-i18n="seoH2">درباره‌ی مولد UUID</h2>
+      <p data-i18n="seoP1">UUID (Universally Unique Identifier) یک شناسه‌ی ۱۲۸ بیتی است که برای شناسایی منحصربه‌فرد اشیاء در سیستم‌های کامپیوتری استفاده می‌شود. این ابزار آنلاین و رایگان به شما یک UUID در هر بازدید می‌دهد — با هر رفرش صفحه، یک UUID جدید تولید می‌شود.</p>
+
+      <h3 data-i18n="seoH3Versions">نسخه‌های پشتیبانی‌شده</h3>
+      <ul>
+        <li data-i18n="verV1"><strong>v1</strong> — مبتنی بر زمان و MAC آدرس</li>
+        <li data-i18n="verV3"><strong>v3</strong> — مبتنی بر MD5 hash از namespace + name</li>
+        <li data-i18n="verV4"><strong>v4</strong> — کاملاً تصادفی (پیشنهاد می‌شود)</li>
+        <li data-i18n="verV5"><strong>v5</strong> — مبتنی بر SHA-1 hash از namespace + name</li>
+        <li data-i18n="verV7"><strong>v7</strong> — مبتنی بر زمان یونیکس + تصادفی (مدرن)</li>
+        <li data-i18n="verNil"><strong>NIL</strong> — UUID صفر (00000000-0000-0000-0000-000000000000)</li>
+      </ul>
+
+      <h3 data-i18n="seoH3Faq">سوالات متداول</h3>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ1">آیا UUIDها تکراری می‌شوند؟</summary>
+        <p data-i18n="faqA1">احتمال تکرار UUID v4 عملاً صفره (۱ در ۲^۱۲۲). با هر رفرش صفحه، یک UUID کاملاً جدید و یکتا تولید می‌شود.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ2">چطور UUID جدید بگیرم؟</summary>
+        <p data-i18n="faqA2">کافیه صفحه رو رفرش کنی (F5 یا Ctrl+R) یا نسخه رو عوض کنی. هر بار یک UUID جدید تولید می‌شه.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ3">چطور UUID رو دانلود کنم؟</summary>
+        <p data-i18n="faqA3">روی دکمه «💾 دانلود uuid.txt» کلیک کن. فایل uuid.txt با UUID جاری دانلود می‌شه.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary data-i18n="faqQ4">آیا داده‌ها جایی ارسال می‌شه؟</summary>
+        <p data-i18n="faqA4">خیر، همه‌ی پردازش‌ها در مرورگر خودت انجام می‌شه. هیچ داده‌ای به سرور ارسال نمی‌شه.</p>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <span data-i18n="footerText">برای دیدن لایسنس این وب‌سایت، لطفاً به</span>
+      <a href="https://psoa.ir/licens.html" target="_blank" rel="noopener">psoa.ir/licens.html</a>
+      <span data-i18n="footerText2">مراجعه کنید.</span>
+    </footer>
+
+  </main>
+
+  <script>
+    // ===== UUID Implementations =====
+
+    function uuidV4() {
+      if (crypto.randomUUID) return crypto.randomUUID();
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = crypto.getRandomValues(new Uint8Array(1))[0] % 16;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    let _v1LastTime = 0;
+    let _v1ClockSeq = Math.floor(Math.random() * 0x3fff);
+    function uuidV1() {
+      const now = Date.now();
+      const time = now * 10000 + 122192928000000000;
+      if (time === _v1LastTime) {
+        _v1ClockSeq = (_v1ClockSeq + 1) & 0x3fff;
+      }
+      _v1LastTime = time;
+
+      const timeLow = (time & 0xffffffff).toString(16).padStart(8, '0');
+      const timeMid = ((time / 0x100000000) & 0xffff).toString(16).padStart(4, '0');
+      const timeHi = (((time / 0x1000000000000) & 0x0fff) | 0x1000).toString(16).padStart(4, '0');
+      const clockSeq = (_v1ClockSeq | 0x8000).toString(16).padStart(4, '0');
+      const node = 'xxxxxxxxxxxx'.replace(/x/g, () =>
+        Math.floor(Math.random() * 16).toString(16)
+      );
+
+      return `${timeLow}-${timeMid}-${timeHi}-${clockSeq}-${node}`;
+    }
+
+    function uuidV7() {
+      const ms = Date.now();
+      const bytes = crypto.getRandomValues(new Uint8Array(16));
+      const tsHex = ms.toString(16).padStart(12, '0');
+      bytes[0] = parseInt(tsHex.slice(0, 2), 16);
+      bytes[1] = parseInt(tsHex.slice(2, 4), 16);
+      bytes[2] = parseInt(tsHex.slice(4, 6), 16);
+      bytes[3] = parseInt(tsHex.slice(6, 8), 16);
+      bytes[4] = parseInt(tsHex.slice(8, 10), 16);
+      bytes[5] = parseInt(tsHex.slice(10, 12), 16);
+      bytes[6] = (bytes[6] & 0x0f) | 0x70;
+      bytes[8] = (bytes[8] & 0x3f) | 0x80;
+
+      const hex = [...bytes].map(b => b.toString(16).padStart(2, '0')).join('');
+      return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+    }
+
+    async function uuidV3(name, namespace = '6ba7b810-9dad-11d1-80b4-00c04fd430c8') {
+      const nsBytes = uuidToBytes(namespace);
+      const nameBytes = new TextEncoder().encode(name);
+      const combined = new Uint8Array(nsBytes.length + nameBytes.length);
+      combined.set(nsBytes);
+      combined.set(nameBytes, nsBytes.length);
+      const hash = new Uint8Array(await crypto.subtle.digest('SHA-1', combined)).slice(0, 16);
+      hash[6] = (hash[6] & 0x0f) | 0x30;
+      hash[8] = (hash[8] & 0x3f) | 0x80;
+      return bytesToUuid(hash);
+    }
+
+    async function uuidV5(name, namespace = '6ba7b810-9dad-11d1-80b4-00c04fd430c8') {
+      const nsBytes = uuidToBytes(namespace);
+      const nameBytes = new TextEncoder().encode(name);
+      const combined = new Uint8Array(nsBytes.length + nameBytes.length);
+      combined.set(nsBytes);
+      combined.set(nameBytes, nsBytes.length);
+      const hash = new Uint8Array(await crypto.subtle.digest('SHA-1', combined)).slice(0, 16);
+      hash[6] = (hash[6] & 0x0f) | 0x50;
+      hash[8] = (hash[8] & 0x3f) | 0x80;
+      return bytesToUuid(hash);
+    }
+
+    function uuidToBytes(uuid) {
+      const hex = uuid.replace(/-/g, '');
+      const bytes = new Uint8Array(16);
+      for (let i = 0; i < 16; i++) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+      return bytes;
+    }
+
+    function bytesToUuid(bytes) {
+      const hex = [...bytes].map(b => b.toString(16).padStart(2, '0')).join('');
+      return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+    }
+
+    async function generateOne(version) {
+      switch (version) {
+        case 'v1': return uuidV1();
+        case 'v3': return await uuidV3('user-' + Date.now() + '-' + Math.random());
+        case 'v4': return uuidV4();
+        case 'v5': return await uuidV5('user-' + Date.now() + '-' + Math.random());
+        case 'v7': return uuidV7();
+        case 'nil': return '00000000-0000-0000-0000-000000000000';
+        default: return uuidV4();
+      }
+    }
+
+    // ===== State =====
+    let currentVersion = 'v4';
+    let currentUuid = '';
+
+    const html = document.documentElement;
+    const titleEl = document.getElementById('title');
+    const subtitleEl = document.getElementById('subtitle');
+    const uuidDisplay = document.getElementById('uuidDisplay');
+    const versionBadge = document.getElementById('versionBadge');
+    const themeToggle = document.getElementById('themeToggle');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const versionBtns = document.querySelectorAll('.version-btn');
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    // ===== Translations =====
+    const translations = {
+      fa: {
+        title: '🎯 مولد UUID آنلاین',
+        subtitle: 'UUID نسخه‌های ۱، ۳، ۴، ۵ و ۷ — با هر رفرش، یک UUID جدید',
+        labelVersion: 'نسخه UUID',
+        btnCopy: '📋 کپی',
+        btnDownload: '💾 دانلود uuid.txt',
+        copied: '✅ کپی شد!',
+        refreshHint: '🔄 برای UUID جدید، صفحه را رفرش کنید',
+        promoTitle: 'سایت رسمی من — psoa.ir',
+        promoSubtitle: 'یه سر بزن، چیزهای جالبی داری!',
+        footerText: 'برای دیدن لایسنس این وب‌سایت، لطفاً به',
+        footerText2: 'مراجعه کنید.',
+        seoH2: 'درباره‌ی مولد UUID',
+        seoP1: 'UUID (Universally Unique Identifier) یک شناسه‌ی ۱۲۸ بیتی است که برای شناسایی منحصربه‌فرد اشیاء در سیستم‌های کامپیوتری استفاده می‌شود. این ابزار آنلاین و رایگان به شما یک UUID در هر بازدید می‌دهد — با هر رفرش صفحه، یک UUID جدید تولید می‌شود.',
+        seoH3Versions: 'نسخه‌های پشتیبانی‌شده',
+        verV1: 'v1 — مبتنی بر زمان و MAC آدرس',
+        verV3: 'v3 — مبتنی بر MD5 hash از namespace + name',
+        verV4: 'v4 — کاملاً تصادفی (پیشنهاد می‌شود)',
+        verV5: 'v5 — مبتنی بر SHA-1 hash از namespace + name',
+        verV7: 'v7 — مبتنی بر زمان یونیکس + تصادفی (مدرن)',
+        verNil: 'NIL — UUID صفر (00000000-0000-0000-0000-000000000000)',
+        seoH3Faq: 'سوالات متداول',
+        faqQ1: 'آیا UUIDها تکراری می‌شوند؟',
+        faqA1: 'احتمال تکرار UUID v4 عملاً صفره (۱ در ۲^۱۲۲). با هر رفرش صفحه، یک UUID کاملاً جدید و یکتا تولید می‌شود.',
+        faqQ2: 'چطور UUID جدید بگیرم؟',
+        faqA2: 'کافیه صفحه رو رفرش کنی (F5 یا Ctrl+R) یا نسخه رو عوض کنی. هر بار یک UUID جدید تولید می‌شه.',
+        faqQ3: 'چطور UUID رو دانلود کنم؟',
+        faqA3: 'روی دکمه «💾 دانلود uuid.txt» کلیک کن. فایل uuid.txt با UUID جاری دانلود می‌شه.',
+        faqQ4: 'آیا داده‌ها جایی ارسال می‌شه؟',
+        faqA4: 'خیر، همه‌ی پردازش‌ها در مرورگر خودت انجام می‌شه. هیچ داده‌ای به سرور ارسال نمی‌شه.'
+      },
+      en: {
+        title: '🎯 UUID Generator Online',
+        subtitle: 'Generate UUID v1, v3, v4, v5, v7 — refresh for a new one',
+        labelVersion: 'UUID Version',
+        btnCopy: '📋 Copy',
+        btnDownload: '💾 Download uuid.txt',
+        copied: '✅ Copied!',
+        refreshHint: '🔄 Refresh the page for a new UUID',
+        promoTitle: 'My official website — psoa.ir',
+        promoSubtitle: 'Drop by, there is something interesting!',
+        footerText: 'To view the license of this website, please visit',
+        footerText2: '.',
+        seoH2: 'About the UUID Generator',
+        seoP1: 'UUID (Universally Unique Identifier) is a 128-bit identifier used to uniquely identify objects in computer systems. This free online tool gives you a UUID on every visit — each page refresh generates a new UUID.',
+        seoH3Versions: 'Supported Versions',
+        verV1: 'v1 — Time-based and MAC address',
+        verV3: 'v3 — MD5 hash from namespace + name',
+        verV4: 'v4 — Completely random (recommended)',
+        verV5: 'v5 — SHA-1 hash from namespace + name',
+        verV7: 'v7 — Unix timestamp + random (modern)',
+        verNil: 'NIL — Zero UUID (00000000-0000-0000-0000-000000000000)',
+        seoH3Faq: 'Frequently Asked Questions',
+        faqQ1: 'Can UUIDs be duplicated?',
+        faqA1: 'The chance of UUID v4 duplication is effectively zero (1 in 2^122). Each page refresh generates a completely new and unique UUID.',
+        faqQ2: 'How do I get a new UUID?',
+        faqA2: 'Just refresh the page (F5 or Ctrl+R) or switch the version. A new UUID is generated each time.',
+        faqQ3: 'How do I download the UUID?',
+        faqA3: 'Click the "💾 Download uuid.txt" button. The uuid.txt file with the current UUID will be downloaded.',
+        faqQ4: 'Is any data sent anywhere?',
+        faqA4: 'No, all processing happens in your browser. No data is sent to any server.'
+      },
+      zh: {
+        title: '🎯 在线 UUID 生成器',
+        subtitle: '生成 UUID v1、v3、v4、v5、v7 — 刷新页面获取新的',
+        labelVersion: 'UUID 版本',
+        btnCopy: '📋 复制',
+        btnDownload: '💾 下载 uuid.txt',
+        copied: '✅ 已复制！',
+        refreshHint: '🔄 刷新页面以获取新的 UUID',
+        promoTitle: '我的官方网站 — psoa.ir',
+        promoSubtitle: '来看看，会很有趣！',
+        footerText: '要查看本网站的许可证，请访问',
+        footerText2: '。',
+        seoH2: '关于 UUID 生成器',
+        seoP1: 'UUID（通用唯一标识符）是用于在计算机系统中唯一标识对象的 128 位标识符。这个免费的在线工具在您每次访问时都会给您一个 UUID —— 每次刷新页面都会生成新的 UUID。',
+        seoH3Versions: '支持的版本',
+        verV1: 'v1 — 基于时间和 MAC 地址',
+        verV3: 'v3 — 基于命名空间 + 名称的 MD5 哈希',
+        verV4: 'v4 — 完全随机（推荐）',
+        verV5: 'v5 — 基于命名空间 + 名称的 SHA-1 哈希',
+        verV7: 'v7 — Unix 时间戳 + 随机（现代）',
+        verNil: 'NIL — 零 UUID (00000000-0000-0000-0000-000000000000)',
+        seoH3Faq: '常见问题',
+        faqQ1: 'UUID 会重复吗？',
+        faqA1: 'UUID v4 重复的概率几乎为零（2^122 分之一）。每次刷新页面都会生成全新的唯一 UUID。',
+        faqQ2: '如何获取新的 UUID？',
+        faqA2: '只需刷新页面（F5 或 Ctrl+R）或切换版本。每次都会生成新的 UUID。',
+        faqQ3: '如何下载 UUID？',
+        faqA3: '点击“💾 下载 uuid.txt”按钮。包含当前 UUID 的 uuid.txt 文件将被下载。',
+        faqQ4: '数据会发送到任何地方吗？',
+        faqA4: '不会，所有处理都在您的浏览器中进行。不会向任何服务器发送数据。'
+      }
+    };
+
+    const rtlLangs = ['fa'];
+    let currentLang = localStorage.getItem('uuid_lang') || 'fa';
+    if (!translations[currentLang]) currentLang = 'fa';
+    let currentTheme = localStorage.getItem('uuid_theme') || 'light';
+
+    function applyTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      currentTheme = theme;
+      localStorage.setItem('uuid_theme', theme);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0a0a' : '#f5f7fa');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    function t(key) {
+      return translations[currentLang][key] || translations.en[key] || key;
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('uuid_lang', lang);
+      const dir = rtlLangs.includes(lang) ? 'rtl' : 'ltr';
+      html.setAttribute('dir', dir);
+      html.setAttribute('lang', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        el.textContent = t(key);
+      });
+
+      titleEl.textContent = t('title');
+      subtitleEl.textContent = t('subtitle');
+
+      langBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      document.title = t('title');
+    }
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+
+    // Version buttons — change UUID on click
+    versionBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        document.querySelector('.version-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        currentVersion = btn.dataset.version;
+        versionBadge.textContent = currentVersion.toUpperCase();
+        await refreshUuid();
+      });
+    });
+
+    // Refresh UUID (new one)
+    async function refreshUuid() {
+      currentUuid = await generateOne(currentVersion);
+      uuidDisplay.textContent = currentUuid;
+      uuidDisplay.classList.remove('flash');
+      void uuidDisplay.offsetWidth;
+      uuidDisplay.classList.add('flash');
+    }
+
+    // Copy button
+    copyBtn.addEventListener('click', () => {
+      if (!currentUuid) return;
+      navigator.clipboard.writeText(currentUuid).then(() => {
+        const orig = copyBtn.textContent;
+        copyBtn.textContent = t('copied');
+        setTimeout(() => copyBtn.textContent = orig, 1500);
+      });
+    });
+
+    // Download button — saves as uuid.txt
+    downloadBtn.addEventListener('click', () => {
+      if (!currentUuid) return;
+      const content = `${currentUuid}\n`;
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'uuid.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // Init
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+
+    // Generate first UUID on page load
+    (async () => {
+      currentUuid = await generateOne(currentVersion);
+      uuidDisplay.textContent = currentUuid;
+      versionBadge.textContent = currentVersion.toUpperCase();
+    })();
+
+    // Keyboard shortcut: Ctrl+R handled by browser (refresh gives new UUID)
+  </script>
+</body>
+</html>
